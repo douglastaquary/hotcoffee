@@ -8,7 +8,9 @@
 
 import Foundation
 import UIKit
-
+import Intents
+import CoreSpotlight
+import CoreServices
 
 class PlaceOrderTableViewController : UITableViewController {
     
@@ -42,11 +44,28 @@ class PlaceOrderTableViewController : UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-         let order = Order(coffee: self.coffee, total: self.total, size: self.coffeeSize)
+        let order = Order(coffee: self.coffee, total: self.total, size: self.coffeeSize)
+        
+        donateOrderActivity(order: order)
         
         let ordersTVC = segue.destination as! OrdersTableViewController
         ordersTVC.orders.append(order)
         
+    }
+    
+    private func donateOrderActivity(order :Order) {
+    
+        let orderActivity = NSUserActivity(activityType: "com.azamsharp.HotCoffee.hot-coffee-activity-type")
+        orderActivity.isEligibleForSearch = true
+        orderActivity.isEligibleForPrediction = true
+        orderActivity.title = order.coffee.name
+        orderActivity.suggestedInvocationPhrase = "Coffee Time"
+        
+        let attributes = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
+        attributes.contentDescription = "Get it while it is hot!"
+        
+        orderActivity.contentAttributeSet = attributes
+        self.userActivity = orderActivity
     }
     
     private func updateTotalLabel(coffeeSize :CoffeeSize) {
