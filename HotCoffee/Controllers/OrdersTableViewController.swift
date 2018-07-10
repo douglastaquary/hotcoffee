@@ -8,6 +8,10 @@
 
 import Foundation
 import UIKit
+import Intents
+import CoreSpotlight
+import CoreServices
+
 
 class OrdersTableViewController : UITableViewController {
     
@@ -41,6 +45,35 @@ class OrdersTableViewController : UITableViewController {
             placeOrderTVC.order = order 
             
         }
+    }
+    
+    func addOrder(order :Order) {
+        
+        self.orders.append(order)
+        
+        // donate the activity
+        donateOrderActivity(order: order)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func donateOrderActivity(order :Order) {
+        
+        let orderActivity = NSUserActivity(activityType: "com.azamsharp.HotCoffee.hot-coffee-activity-type")
+        orderActivity.isEligibleForSearch = true
+        orderActivity.isEligibleForPrediction = true
+        orderActivity.title = order.coffee.name
+        orderActivity.suggestedInvocationPhrase = "Coffee Time"
+        orderActivity.userInfo = ["Key":"Value"]
+        
+        let attributes = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
+        attributes.contentDescription = "Get it while it is hot!"
+        
+        orderActivity.contentAttributeSet = attributes
+        self.userActivity = orderActivity
+        self.userActivity?.becomeCurrent()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

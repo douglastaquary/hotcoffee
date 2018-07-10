@@ -26,3 +26,15 @@ class Order {
         self.size = size 
     }
 }
+
+extension Order {
+    
+    func toDictionary() -> [String:Any] {
+        return ["name":self.coffee.name, "imageURL": self.coffee.imageURL,
+                "total":self.total, "coffeeSize":self.size.rawValue]
+    }
+    
+    
+}
+
+

@@ -19,6 +19,8 @@ class PlaceOrderTableViewController : UITableViewController {
     @IBOutlet weak var coffeeSizeSegmentedControl :UISegmentedControl!
     @IBOutlet weak var totalLabel :UILabel!
     
+    var orderActivity :NSUserActivity!
+    
     var coffee :Coffee!
     var order :Order!
     private var total :Double = 0.0
@@ -46,26 +48,8 @@ class PlaceOrderTableViewController : UITableViewController {
         
         let order = Order(coffee: self.coffee, total: self.total, size: self.coffeeSize)
         
-        donateOrderActivity(order: order)
-        
         let ordersTVC = segue.destination as! OrdersTableViewController
-        ordersTVC.orders.append(order)
-        
-    }
-    
-    private func donateOrderActivity(order :Order) {
-    
-        let orderActivity = NSUserActivity(activityType: "com.azamsharp.HotCoffee.hot-coffee-activity-type")
-        orderActivity.isEligibleForSearch = true
-        orderActivity.isEligibleForPrediction = true
-        orderActivity.title = order.coffee.name
-        orderActivity.suggestedInvocationPhrase = "Coffee Time"
-        
-        let attributes = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
-        attributes.contentDescription = "Get it while it is hot!"
-        
-        orderActivity.contentAttributeSet = attributes
-        self.userActivity = orderActivity
+        ordersTVC.addOrder(order: order)
     }
     
     private func updateTotalLabel(coffeeSize :CoffeeSize) {
