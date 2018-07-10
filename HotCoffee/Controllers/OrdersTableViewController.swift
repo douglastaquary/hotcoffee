@@ -69,6 +69,7 @@ class OrdersTableViewController : UITableViewController {
         orderActivity.userInfo = ["Key":"Value"]
         
         let attributes = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
+        attributes.thumbnailData = UIImage(named: order.coffee.imageURL)?.pngData()
         attributes.contentDescription = "Get it while it is hot!"
         
         orderActivity.contentAttributeSet = attributes
