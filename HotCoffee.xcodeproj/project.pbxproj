@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E63BFFE20FD6F2400C94060 /* HotCoffee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HotCoffee.entitlements; sourceTree = "<group>"; };
 		8D8EE01F20F11A3E001E64BE /* HotCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8EE02220F11A3E001E64BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D8EE02720F11A3E001E64BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 		8D8EE02120F11A3E001E64BE /* HotCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				4E63BFFE20FD6F2400C94060 /* HotCoffee.entitlements */,
 				8D8EE04220F11F37001E64BE /* Images */,
 				8D8EE03720F11A7F001E64BE /* Models */,
 				8D8EE03420F11A64001E64BE /* Controllers */,
@@ -141,6 +143,11 @@
 				TargetAttributes = {
 					8D8EE01E20F11A3E001E64BE = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Siri = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -335,13 +342,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2Q8EGNCQA;
+				DEVELOPMENT_TEAM = 6V95FQX348;
 				INFOPLIST_FILE = HotCoffee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.azamsharp.HotCoffee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.douglastaquary.HotCoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -353,13 +360,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2Q8EGNCQA;
+				DEVELOPMENT_TEAM = 6V95FQX348;
 				INFOPLIST_FILE = HotCoffee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.azamsharp.HotCoffee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.douglastaquary.HotCoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

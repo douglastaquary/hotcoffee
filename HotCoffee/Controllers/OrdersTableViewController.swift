@@ -32,18 +32,18 @@ class OrdersTableViewController : UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+
         if segue.identifier == "showOrderDetails" {
-            
+
             guard let indexPath = tableView.indexPathForSelectedRow else {
                 return
             }
-            
+
             let order = self.orders[indexPath.row]
-            
+
             let placeOrderTVC = segue.destination as! PlaceOrderTableViewController
-            placeOrderTVC.order = order 
-            
+            placeOrderTVC.order = order
+
         }
     }
     
@@ -51,7 +51,6 @@ class OrdersTableViewController : UITableViewController {
         
         self.orders.append(order)
         
-        // donate the activity
         donateOrderActivity(order: order)
         
         DispatchQueue.main.async {
@@ -59,23 +58,26 @@ class OrdersTableViewController : UITableViewController {
         }
     }
     
-    private func donateOrderActivity(order :Order) {
+    private func donateOrderActivity(order: Order) {
         
-        let orderActivity = NSUserActivity(activityType: "com.azamsharp.HotCoffee.hot-coffee-activity-type")
+        let orderActivity = NSUserActivity(activityType: "com.douglastaquary.HotCoffee.hot-coffee-activity-type")
+//
         orderActivity.isEligibleForSearch = true
         orderActivity.isEligibleForPrediction = true
         orderActivity.title = order.coffee.name
-        orderActivity.suggestedInvocationPhrase = "Coffee Time"
-        orderActivity.userInfo = ["Key":"Value"]
+        orderActivity.suggestedInvocationPhrase = "Coffe Time"
+
+        let attributes =
+            CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
+//
+//        attributes.contentDescription = "Get it while is hot!"
+//
+//        orderActivity.contentAttributeSet = attributes
+//        self.userActivity = orderActivity
+//        self.userActivity?.becomeCurrent()
         
-        let attributes = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
-        attributes.thumbnailData = UIImage(named: order.coffee.imageURL)?.pngData()
-        attributes.contentDescription = "Get it while it is hot!"
-        
-        orderActivity.contentAttributeSet = attributes
-        self.userActivity = orderActivity
-        self.userActivity?.becomeCurrent()
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

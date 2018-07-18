@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         
-        if userActivity.activityType == "com.azamsharp.HotCoffee.hot-coffee-activity-type" {
+        if userActivity.activityType == "com.douglastaquary.HotCoffee.hot-coffee-activity-type" {
             
             if let userInfo = userActivity.userInfo {
                 print(userInfo) // this is always empty with no values

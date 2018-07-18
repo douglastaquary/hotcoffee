@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderTableViewCell" textLabel="v8u-L2-cg5" detailTextLabel="yxd-QK-R89" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="lSL-8F-aGH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderTableViewCell" textLabel="v8u-L2-cg5" rowHeight="80" style="IBUITableViewCellStyleDefault" id="lSL-8F-aGH">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lSL-8F-aGH" id="jcz-nu-NUw">
@@ -25,23 +25,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v8u-L2-cg5">
-                                            <rect key="frame" x="16" y="20" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yxd-QK-R89">
-                                            <rect key="frame" x="16" y="43.5" width="44" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="9Do-Q9-II8" kind="show" identifier="showOrderDetails" id="HZ6-Y5-st2"/>
+                                    <segue destination="9Do-Q9-II8" kind="show" identifier="showOrderDetails" id="MRp-H4-ufQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,7 +60,7 @@
         <scene sceneID="U0y-Zr-A4o">
             <objects>
                 <tableViewController id="zbs-fl-A3B" customClass="CoffeeListingTableViewController" customModule="HotCoffee" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="k6H-dh-wTd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="k6H-dh-wTd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -274,10 +267,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4i-up-L78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2148" y="116"/>
+            <point key="canvasLocation" x="2071" y="116"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HZ6-Y5-st2"/>
+        <segue reference="MRp-H4-ufQ"/>
     </inferredMetricsTieBreakers>
 </document>

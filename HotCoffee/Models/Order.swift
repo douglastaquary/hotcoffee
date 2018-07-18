@@ -16,25 +16,19 @@ enum CoffeeSize :Int {
 
 class Order {
     
+    var identifier :UUID
     var coffee :Coffee
     var total :Double
     var size :CoffeeSize
     
-    init(coffee :Coffee, total :Double, size :CoffeeSize = .medium) {
+    init(coffee :Coffee, total :Double, size :CoffeeSize = .medium, identifier :UUID = UUID()) {
         self.coffee = coffee
         self.total = total
-        self.size = size 
+        self.size = size
+        self.identifier = identifier
     }
 }
 
-extension Order {
-    
-    func toDictionary() -> [String:Any] {
-        return ["name":self.coffee.name, "imageURL": self.coffee.imageURL,
-                "total":self.total, "coffeeSize":self.size.rawValue]
-    }
-    
-    
-}
+
 
 
